@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "name": "Acme",
+    "repo": "https://github.com/you/acme",
+    "branch": "main",
+    "source": "features.json",
+    "configFile": "~/.config/acme/config.json",
+    "platforms": [
+      { "id": "web", "label": "Web" },
+      { "id": "ios", "label": "iOS" }
+    ]
+  },
+  "groups": [
+    { "id": "core", "title": "Core" },
+    { "id": "settings", "title": "Settings" }
+  ],
+  "flow": [
+    { "title": "Sign in", "detail": "Email link or passkey", "group": "core" },
+    { "title": "Configure", "detail": "Everything under Settings", "group": "settings" }
+  ],
+  "features": [
+    {
+      "id": "sign-in",
+      "group": "core",
+      "name": "Sign in",
+      "says": "Sign in with an email link or a passkey.",
+      "status": "stable@1.0.0",
+      "platforms": ["web", "ios"],
+      "shortcuts": [{ "keys": "⌘L", "does": "Open sign in" }],
+      "docs": ["README.md"]
+    },
+    {
+      "id": "dark-mode",
+      "group": "settings",
+      "name": "Dark mode",
+      "says": "Follows the system theme, or pick one.",
+      "status": "main",
+      "platforms": ["web"],
+      "added": "2026-11-01",
+      "note": "iOS follows the system only.",
+      "config": [{ "key": "theme", "value": "\"system\" | \"light\" | \"dark\"", "does": "The theme" }]
+    },
+    {
+      "id": "offline",
+      "group": "core",
+      "name": "Offline mode",
+      "says": "Keeps working without a connection and syncs later.",
+      "status": "experiment:offline",
+      "platforms": ["web", "ios"],
+      "added": "2026-10-20"
+    },
+    {
+      "id": "widgets",
+      "group": "core",
+      "name": "Home screen widgets",
+      "says": "Today's items on the home screen.",
+      "status": "branch:feat/widgets",
+      "platforms": ["ios"],
+      "added": "2026-10-28",
+      "flag": "widgets"
+    },
+    {
+      "id": "export-csv",
+      "group": "settings",
+      "name": "Export to CSV",
+      "says": "Download everything as one CSV.",
+      "status": "review:#42",
+      "pr": 42,
+      "platforms": ["web"],
+      "added": "2026-10-30"
+    }
+  ]
+}
