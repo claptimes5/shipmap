@@ -1,3 +1,4 @@
+/** @jsxRuntime automatic @jsxImportSource react */
 // Writes the feature map as one static HTML file (no client JS, noindex).
 //   bun feature-map-kit/build.tsx <features.json> <out.html> [repo-root]
 // Exits 1 on shape errors, so it can gate a build or CI.

@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "example": "tsx build.tsx features.example.json out/example.html .",
-    "typecheck": "tsc -p ."
+    "typecheck": "tsc -p .",
+    "test": "node --test init.test.mjs"
   },
   "peerDependencies": {
     "react": ">=18",

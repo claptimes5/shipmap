@@ -1,3 +1,4 @@
+/** @jsxRuntime automatic @jsxImportSource react */
 // The feature map, rendered to static HTML at build time. Nothing project-specific lives here.
 import type { Audit } from "./audit.ts"
 import { STATUS_KINDS, parseStatus, type Data, type Feature, type Status } from "./features.ts"

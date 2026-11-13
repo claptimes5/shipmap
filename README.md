@@ -10,6 +10,9 @@ standalone script with no Scrawl-specific code.
 
 Try it: `npm i && npm run example`, then open `out/example.html`.
 
+**Live demo:** <https://claptimes5.github.io/shipmap/>, built from the sample project in
+[`example/`](example/) by [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
+
 ## How it works
 
 1. **One JSON file is the source.** `features.json` lists `meta` (name, repo, platforms),
@@ -38,10 +41,37 @@ Try it: `npm i && npm run example`, then open `out/example.html`.
 
 ## Add it to a project
 
+### With a coding agent (recommended)
+
+Paste this into Claude Code, Codex, Cursor or similar, from the project root:
+
+```text
+Add shipmap (https://github.com/claptimes5/shipmap) to this project:
+1. Run `npx -y degit claptimes5/shipmap tools/shipmap`, then `node tools/shipmap/init.mjs`.
+   It creates features.json from the example and prints the agent rules.
+2. Add those rules to this repo's agent instructions (AGENTS.md and/or CLAUDE.md; create
+   AGENTS.md if neither exists), under a fitting heading, matching the file's style.
+3. Read tools/shipmap/README.md for the features.json format, then replace the example
+   entries with this project's real user-facing features. Infer status from git tags,
+   branches and open PRs; include shortcuts, config keys and doc links you can find.
+   Text fields are plain text, not Markdown. Don't invent features you can't point to in
+   the code.
+4. Add a build step for the page (see the README) and a release-checklist item to change
+   every "status": "main" to "stable@<version>". Run the build and fix any errors.
+5. Show me what you added and anything you weren't sure about.
+```
+
+### By hand
+
 ```bash
 npx -y degit claptimes5/shipmap <project>/tools/shipmap
-cp <project>/tools/shipmap/features.example.json <project>/features.json
+cd <project> && node tools/shipmap/init.mjs
 ```
+
+`init.mjs` creates `features.json` from the example (if missing) and asks before adding the
+feature map rules (below) to `AGENTS.md` and/or `CLAUDE.md`, creating `AGENTS.md` if neither
+exists. `--yes` skips the questions; without a terminal it just prints the rules. Re-running
+it is safe.
 
 Edit `features.json`, then build (Bun runs TSX directly; with Node use `npx tsx`):
 
@@ -70,7 +100,9 @@ your host's auth (Cloudflare Access, Vercel protection, basic auth) instead.
 The page is only as good as the JSON. Scrawl keeps it current with three rules; copy them into
 the project's `AGENTS.md` / `CLAUDE.md` so agents follow them too:
 
-> **Feature map:** `features.json` lists every user-facing feature with its status
+`init.mjs` adds them for you; the text lives in [`AGENTS.snippet.md`](AGENTS.snippet.md):
+
+> `features.json` lists every user-facing feature with its status
 > (`stable@<version>`, `main`, `experiment:<flag>`, `branch:<name>`, `review:#<pr>`),
 > platforms, shortcuts, config keys and docs. A PR that adds, removes, renames or changes the
 > status of a user-facing feature updates it in the same PR. A release changes every
@@ -95,3 +127,5 @@ that set to the `config[].key` and `experiment:` flags in the JSON, and run it i
 | `map.css` | Scrawl's dark theme (status colours are CSS variables at the top) |
 | `build.tsx` | CLI: JSON → audited static HTML |
 | `features.example.json` | one feature of each status |
+| `init.mjs` | setup: creates `features.json`, offers to add the rules to `AGENTS.md` / `CLAUDE.md` |
+| `AGENTS.snippet.md` | the agent rules `init.mjs` adds |
