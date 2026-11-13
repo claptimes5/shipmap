@@ -14,7 +14,39 @@
   --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --mono: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
   --w: 1080px;
-  color-scheme: dark;
+  --text2: #d1d1d6;
+  --tint: rgba(255, 255, 255, 0.06);
+  --hover: rgba(255, 255, 255, 0.2);
+  --top: rgba(10, 10, 11, 0.8);
+  --kbd: linear-gradient(#2c2c2e, #1f1f21);
+  --kbd-hi: rgba(255, 255, 255, 0.1);
+  --kbd-lo: #000;
+  color-scheme: light dark;
+}
+
+/* Light theme: follows the system setting; dark is the default above. */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #fbfbfc;
+    --panel: #f2f2f4;
+    --fg: #1c1c1e;
+    --muted: #6e6e73;
+    --faint: #c7c7cc;
+    --line: rgba(0, 0, 0, 0.08);
+    --stable: #28a745;
+    --main: #007aff;
+    --experiment: #e6b800;
+    --branch: #8e8e93;
+    --review: #af52de;
+    --issue: #c45500;
+    --text2: #3a3a3c;
+    --tint: rgba(0, 0, 0, 0.05);
+    --hover: rgba(0, 0, 0, 0.2);
+    --top: rgba(251, 251, 252, 0.8);
+    --kbd: linear-gradient(#ffffff, #ececef);
+    --kbd-hi: rgba(255, 255, 255, 0.8);
+    --kbd-lo: rgba(0, 0, 0, 0.18);
+  }
 }
 
 * {
@@ -56,10 +88,10 @@ kbd {
   font: 12px var(--sans);
   color: var(--fg);
   border-radius: 6px;
-  background: linear-gradient(#2c2c2e, #1f1f21);
+  background: var(--kbd);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 1px 0 #000;
+    inset 0 1px 0 var(--kbd-hi),
+    0 1px 0 var(--kbd-lo);
   white-space: nowrap;
 }
 
@@ -74,7 +106,7 @@ kbd {
   gap: 24px;
   height: 48px;
   padding: 0 max(24px, calc((100vw - var(--w)) / 2 + 24px));
-  background: rgba(10, 10, 11, 0.8);
+  background: var(--top);
   backdrop-filter: blur(18px) saturate(1.4);
   -webkit-backdrop-filter: blur(18px) saturate(1.4);
   box-shadow: 0 1px 0 var(--line);
@@ -132,6 +164,12 @@ h1 {
   margin-top: 8px;
   font-size: 13px;
   color: var(--muted);
+}
+
+.about {
+  margin-top: 8px;
+  max-width: 66ch;
+  color: var(--text2);
 }
 
 .meta a {
@@ -211,7 +249,7 @@ section.board {
 }
 
 .flow a:hover {
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 1px var(--hover);
 }
 
 .flow strong {
@@ -238,7 +276,7 @@ section.board {
   font-weight: 500;
   letter-spacing: 0.01em;
   white-space: nowrap;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--tint);
   color: var(--fg);
 }
 
@@ -283,7 +321,7 @@ section.board {
 .pf .off {
   color: var(--faint);
   text-decoration: line-through;
-  text-decoration-color: rgba(255, 255, 255, 0.18);
+  text-decoration-color: var(--faint);
 }
 
 /* ---------- Status board ---------- */
@@ -432,7 +470,7 @@ section.board {
 .row-body {
   display: grid;
   gap: 8px;
-  color: #d1d1d6;
+  color: var(--text2);
   max-width: 66ch;
 }
 
@@ -451,8 +489,8 @@ section.board {
 .keys code {
   padding: 2px 6px;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.06);
-  color: #d1d1d6;
+  background: var(--tint);
+  color: var(--text2);
 }
 
 .links {
@@ -490,7 +528,7 @@ section.board {
   padding: 8px 16px 8px 0;
   vertical-align: top;
   border-top: 1px solid var(--line);
-  color: #d1d1d6;
+  color: var(--text2);
 }
 
 .ref tr:first-child td {

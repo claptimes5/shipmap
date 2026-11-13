@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "name": "shipmap",
+    "about": "shipmap's own features, kept up to date as it's built. A sample with every status, the audit and the shortcut and config tables is at claptimes5.github.io/shipmap/example/.",
+    "repo": "https://github.com/claptimes5/shipmap",
+    "branch": "main",
+    "source": "features.json",
+    "platforms": [
+      {
+        "id": "node",
+        "label": "Node"
+      },
+      {
+        "id": "bun",
+        "label": "Bun"
+      }
+    ]
+  },
+  "groups": [
+    {
+      "id": "setup",
+      "title": "Setup"
+    },
+    {
+      "id": "source",
+      "title": "features.json"
+    },
+    {
+      "id": "audit",
+      "title": "Audit"
+    },
+    {
+      "id": "page",
+      "title": "The page"
+    }
+  ],
+  "flow": [
+    {
+      "title": "Set up",
+      "detail": "init.mjs or the agent prompt",
+      "group": "setup"
+    },
+    {
+      "title": "List features",
+      "detail": "One JSON file, one status each",
+      "group": "source"
+    },
+    {
+      "title": "Build",
+      "detail": "Audited on every build",
+      "group": "audit"
+    },
+    {
+      "title": "Share",
+      "detail": "One static HTML file",
+      "group": "page"
+    }
+  ],
+  "features": [
+    {
+      "id": "init",
+      "group": "setup",
+      "name": "init.mjs",
+      "says": "Creates features.json from the example and offers to add the keep-it-true rules to AGENTS.md or CLAUDE.md. Safe to re-run; --yes skips the questions.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-13",
+      "docs": [
+        "README.md#by-hand",
+        "AGENTS.snippet.md"
+      ]
+    },
+    {
+      "id": "agent-prompt",
+      "group": "setup",
+      "name": "Agent setup prompt",
+      "says": "A prompt to paste into a coding agent that installs shipmap and fills features.json from the project's real features.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-13",
+      "docs": [
+        "README.md#with-a-coding-agent-recommended"
+      ]
+    },
+    {
+      "id": "statuses",
+      "group": "source",
+      "name": "Five statuses",
+      "says": "Each feature is stable@version, main, experiment:flag, branch:name or review:#pr, as one string.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-04",
+      "docs": [
+        "README.md#how-it-works"
+      ]
+    },
+    {
+      "id": "shape-errors",
+      "group": "source",
+      "name": "Shape errors fail the build",
+      "says": "A bad id, unknown group or platform, bad status or missing date exits 1, so the map can gate CI.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-04"
+    },
+    {
+      "id": "doc-links",
+      "group": "audit",
+      "name": "Doc link check",
+      "says": "Flags a docs link to a file or #heading that isn't in the repo.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-04"
+    },
+    {
+      "id": "release-drift",
+      "group": "audit",
+      "name": "Release drift check",
+      "says": "Compares statuses with the newest git tag: stable versions that aren't released yet, and main entries that landed before the last release.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-04"
+    },
+    {
+      "id": "staleness",
+      "group": "audit",
+      "name": "Staleness check",
+      "says": "Flags experiments older than six weeks and pull requests open longer than 14 days.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-04"
+    },
+    {
+      "id": "static-page",
+      "group": "page",
+      "name": "One static HTML file",
+      "says": "CSS inlined, no client JavaScript, noindex. Host it anywhere.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-04"
+    },
+    {
+      "id": "board",
+      "group": "page",
+      "name": "Status board and Needs a look",
+      "says": "A column per status, stable grouped by release, with every audit finding listed underneath.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-04"
+    },
+    {
+      "id": "reference-tables",
+      "group": "page",
+      "name": "Shortcut and config tables",
+      "says": "Collects every feature's shortcuts and config keys into two tables. Each only appears when some feature has one.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-04"
+    },
+    {
+      "id": "light-dark",
+      "group": "page",
+      "name": "Light and dark theme",
+      "says": "Follows the system's light or dark setting.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-13"
+    },
+    {
+      "id": "about-line",
+      "group": "page",
+      "name": "About line",
+      "says": "An optional meta.about sentence under the title, to say what the map covers.",
+      "status": "main",
+      "platforms": [
+        "node",
+        "bun"
+      ],
+      "added": "2026-11-13"
+    }
+  ]
+}

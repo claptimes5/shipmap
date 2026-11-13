@@ -45,6 +45,8 @@ export type Meta = {
   branch?: string
   /** Path of features.json in the repo, for the "built from" link. */
   source?: string
+  /** Optional line under the title, e.g. what this map covers or who it's for. */
+  about?: string
   /** Optional header icon URL. */
   icon?: string
   platforms: { id: string; label: string }[]

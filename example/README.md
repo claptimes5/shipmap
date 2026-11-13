@@ -3,7 +3,8 @@
 A made-up to-do app that shows how a project uses shipmap. There is no app code here,
 only what shipmap reads: [`features.json`](features.json) and the docs it links to.
 
-Build the page from the shipmap root:
+Build the page from the shipmap root (the live copy is at
+https://claptimes5.github.io/shipmap/example/):
 
 ```bash
 npx tsx build.tsx example/features.json out/example/index.html .

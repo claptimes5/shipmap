@@ -30,8 +30,9 @@ const html = `<!doctype html>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="robots" content="noindex,nofollow" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fbfbfc" media="(prefers-color-scheme: light)" />
     <title>${esc(data.meta.name)} feature map</title>
     <style>${css.replaceAll("</style", "<\\/style")}</style>
   </head>

@@ -10,8 +10,10 @@ standalone script with no Scrawl-specific code.
 
 Try it: `npm i && npm run example`, then open `out/example.html`.
 
-**Live demo:** <https://claptimes5.github.io/shipmap/>, built from the sample project in
-[`example/`](example/) by [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
+**Live demo:** <https://claptimes5.github.io/shipmap/> is shipmap's own feature map, built
+from [`features.json`](features.json). <https://claptimes5.github.io/shipmap/example/> is a
+made-up app ([`example/`](example/)) that uses every status, the audit and the shortcut and
+config tables. Both are built by [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
 
 ## How it works
 

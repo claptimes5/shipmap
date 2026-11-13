@@ -1,4 +1,4 @@
-# Builds the sample project's feature map and publishes it to GitHub Pages.
+# Builds shipmap's own feature map (features.json) and publishes it to GitHub Pages.
 name: pages
 on:
   push:
@@ -24,7 +24,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npx tsx build.tsx example/features.json _site/index.html .
+      - run: npx tsx build.tsx features.json _site/index.html .
+      - run: npx tsx build.tsx example/features.json _site/example/index.html .
       - uses: actions/upload-pages-artifact@v3
       - id: deploy
         uses: actions/deploy-pages@v4

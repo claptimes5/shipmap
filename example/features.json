@@ -1,26 +1,61 @@
 {
   "meta": {
-    "name": "Tasklet",
+    "name": "Tasklet (sample)",
+    "about": "Sample data: Tasklet is a made-up app that shows every status, the Needs a look audit and the shortcut and config tables. shipmap's real feature map is at claptimes5.github.io/shipmap/.",
     "repo": "https://github.com/claptimes5/shipmap",
     "branch": "main",
     "source": "example/features.json",
     "configFile": "~/.config/tasklet/config.json",
     "platforms": [
-      { "id": "web", "label": "Web" },
-      { "id": "ios", "label": "iOS" },
-      { "id": "android", "label": "Android" }
+      {
+        "id": "web",
+        "label": "Web"
+      },
+      {
+        "id": "ios",
+        "label": "iOS"
+      },
+      {
+        "id": "android",
+        "label": "Android"
+      }
     ]
   },
   "groups": [
-    { "id": "tasks", "title": "Tasks" },
-    { "id": "sync", "title": "Accounts & sync" },
-    { "id": "settings", "title": "Settings" }
+    {
+      "id": "tasks",
+      "title": "Tasks"
+    },
+    {
+      "id": "sync",
+      "title": "Accounts & sync"
+    },
+    {
+      "id": "settings",
+      "title": "Settings"
+    }
   ],
   "flow": [
-    { "title": "Capture", "detail": "Quick add from anywhere", "group": "tasks" },
-    { "title": "Plan", "detail": "Due dates, tags, reminders", "group": "tasks" },
-    { "title": "Everywhere", "detail": "Sign in to sync devices", "group": "sync" },
-    { "title": "Tune", "detail": "Theme, start of week", "group": "settings" }
+    {
+      "title": "Capture",
+      "detail": "Quick add from anywhere",
+      "group": "tasks"
+    },
+    {
+      "title": "Plan",
+      "detail": "Due dates, tags, reminders",
+      "group": "tasks"
+    },
+    {
+      "title": "Everywhere",
+      "detail": "Sign in to sync devices",
+      "group": "sync"
+    },
+    {
+      "title": "Tune",
+      "detail": "Theme, start of week",
+      "group": "settings"
+    }
   ],
   "features": [
     {
@@ -29,9 +64,24 @@
       "name": "Quick add",
       "says": "Type a task and press Enter; #tags and dates like tomorrow are picked out.",
       "status": "stable@1.0.0",
-      "platforms": ["web", "ios", "android"],
-      "shortcuts": [{ "keys": "N", "does": "Focus quick add" }, { "keys": "Enter", "does": "Add the task" }],
-      "docs": ["example/README.md#quick-add"]
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
+      "shortcuts": [
+        {
+          "keys": "N",
+          "does": "Focus quick add"
+        },
+        {
+          "keys": "Enter",
+          "does": "Add the task"
+        }
+      ],
+      "docs": [
+        "example/README.md#quick-add"
+      ]
     },
     {
       "id": "complete",
@@ -39,8 +89,21 @@
       "name": "Complete and undo",
       "says": "Tick a task off; undo within five seconds.",
       "status": "stable@1.0.0",
-      "platforms": ["web", "ios", "android"],
-      "shortcuts": [{ "keys": "X", "does": "Complete the selected task" }, { "keys": "⌘Z", "does": "Undo" }]
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
+      "shortcuts": [
+        {
+          "keys": "X",
+          "does": "Complete the selected task"
+        },
+        {
+          "keys": "⌘Z",
+          "does": "Undo"
+        }
+      ]
     },
     {
       "id": "reminders",
@@ -48,8 +111,13 @@
       "name": "Reminders",
       "says": "A notification at the time you set on a task.",
       "status": "stable@1.2.0",
-      "platforms": ["ios", "android"],
-      "docs": ["example/README.md#reminders"]
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "docs": [
+        "example/README.md#reminders"
+      ]
     },
     {
       "id": "sign-in",
@@ -57,7 +125,11 @@
       "name": "Sign in",
       "says": "Email link or passkey.",
       "status": "stable@1.1.0",
-      "platforms": ["web", "ios", "android"]
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ]
     },
     {
       "id": "sync",
@@ -65,8 +137,14 @@
       "name": "Sync",
       "says": "Tasks stay the same on every signed-in device.",
       "status": "stable@1.1.0",
-      "platforms": ["web", "ios", "android"],
-      "docs": ["example/README.md#sync"]
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
+      "docs": [
+        "example/README.md#sync"
+      ]
     },
     {
       "id": "theme",
@@ -74,9 +152,19 @@
       "name": "Theme",
       "says": "Follow the system, or pick light or dark.",
       "status": "main",
-      "platforms": ["web", "ios", "android"],
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
       "added": "2026-11-05",
-      "config": [{ "key": "theme", "value": "\"system\" | \"light\" | \"dark\"", "does": "The theme" }]
+      "config": [
+        {
+          "key": "theme",
+          "value": "\"system\" | \"light\" | \"dark\"",
+          "does": "The theme"
+        }
+      ]
     },
     {
       "id": "week-start",
@@ -84,10 +172,18 @@
       "name": "Start of week",
       "says": "Choose whether weeks start on Sunday or Monday.",
       "status": "main",
-      "platforms": ["web"],
+      "platforms": [
+        "web"
+      ],
       "added": "2026-11-10",
       "note": "Mobile reads the system locale.",
-      "config": [{ "key": "weekStart", "value": "\"sunday\" | \"monday\"", "does": "First day of the week" }]
+      "config": [
+        {
+          "key": "weekStart",
+          "value": "\"sunday\" | \"monday\"",
+          "does": "First day of the week"
+        }
+      ]
     },
     {
       "id": "natural-dates",
@@ -95,9 +191,19 @@
       "name": "Smarter dates",
       "says": "Understands \"next fri\", \"in 3 days\" and \"end of month\" in quick add.",
       "status": "experiment:nlDates",
-      "platforms": ["web", "ios", "android"],
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
       "added": "2026-08-20",
-      "config": [{ "key": "experiments.nlDates", "value": "true | false", "does": "Turn on smarter dates" }]
+      "config": [
+        {
+          "key": "experiments.nlDates",
+          "value": "true | false",
+          "does": "Turn on smarter dates"
+        }
+      ]
     },
     {
       "id": "shared-lists",
@@ -105,7 +211,9 @@
       "name": "Shared lists",
       "says": "Invite someone to a list; both of you can edit it.",
       "status": "branch:feat/shared-lists",
-      "platforms": ["web"],
+      "platforms": [
+        "web"
+      ],
       "added": "2026-10-25",
       "flag": "sharedLists"
     },
@@ -116,7 +224,10 @@
       "says": "Today's tasks on the home screen.",
       "status": "review:#7",
       "pr": 7,
-      "platforms": ["ios", "android"],
+      "platforms": [
+        "ios",
+        "android"
+      ],
       "added": "2026-11-08"
     }
   ]

@@ -307,6 +307,7 @@ export function FeatureMap({ audit, data }: { audit: Audit; data: Data }) {
       <main className="map">
         <section className="intro">
           <h1>Feature map</h1>
+          {meta.about && <p className="about">{meta.about}</p>}
           <p className="meta">
             {features.length} features
             {audit.release.version && ` · newest release ${audit.release.version} (${audit.release.date})`} · built {audit.today}
